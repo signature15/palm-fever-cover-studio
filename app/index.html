@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e1113">
+    <title>Palm Fever | Cover Studio</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Palm Fever cover studio home">
+          <span class="wordmark-mark" aria-hidden="true">PF</span>
+          <span class="wordmark-copy">
+            <strong>Palm Fever</strong>
+            <small>Cover studio</small>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span class="offline-dot" aria-hidden="true"></span>
+          <span>Local edit</span>
+          <span class="meta-divider" aria-hidden="true"></span>
+          <span id="project-state">Ready for a new cut</span>
+        </div>
+      </header>
+
+      <main class="studio-grid">
+        <aside class="control-rail" aria-label="Cover controls">
+          <section class="rail-section import-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">01 / Photos</p>
+                <h1>Build the cast</h1>
+              </div>
+              <span class="photo-count" id="photo-count">0 / 6</span>
+            </div>
+            <label class="dropzone" id="dropzone" for="photo-input">
+              <span class="dropzone-mark" aria-hidden="true">+</span>
+              <span class="dropzone-copy">
+                <strong>Drop photos here</strong>
+                <small>JPG, PNG, or WebP. Six frames max.</small>
+              </span>
+              <span class="dropzone-action">Browse</span>
+            </label>
+            <input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+          </section>
+
+          <section class="rail-section">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="section-label">02 / Contact sheet</p>
+                <h2>Choose a frame</h2>
+              </div>
+              <span class="hint-text">Click to replace</span>
+            </div>
+            <div class="slot-grid" id="slot-grid" aria-label="Six photo slots">
+              <button class="slot is-active" type="button" data-slot="0" aria-label="Frame 1, selected">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>01</span><span class="slot-name">Open</span></span>
+              </button>
+              <button class="slot" type="button" data-slot="1" aria-label="Frame 2">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>02</span><span class="slot-name">Open</span></span>
+              </button>
+              <button class="slot" type="button" data-slot="2" aria-label="Frame 3">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>03</span><span class="slot-name">Open</span></span>
+              </button>
+              <button class="slot" type="button" data-slot="3" aria-label="Frame 4">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>04</span><span class="slot-name">Open</span></span>
+              </button>
+              <button class="slot" type="button" data-slot="4" aria-label="Frame 5">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>05</span><span class="slot-name">Open</span></span>
+              </button>
+              <button class="slot" type="button" data-slot="5" aria-label="Frame 6">
+                <span class="slot-thumb"></span>
+                <span class="slot-footer"><span>06</span><span class="slot-name">Open</span></span>
+              </button>
+            </div>
+          </section>
+
+          <section class="rail-section type-section">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="section-label">03 / Name the night</p>
+                <h2>Billboard title</h2>
+              </div>
+            </div>
+            <label class="field-label" for="caption-input">Title on the cover</label>
+            <input id="caption-input" class="caption-input" type="text" maxlength="32" value="Palm Fever" autocomplete="off">
+            <p class="field-note">Keep it short. The canvas handles the loud part.</p>
+          </section>
+
+          <section class="rail-section grade-section">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="section-label">04 / Color lab</p>
+                <h2>Pick a grade</h2>
+              </div>
+            </div>
+            <div class="grade-list" role="group" aria-label="Color grades">
+              <button class="grade-button" type="button" data-grade="original">
+                <span class="grade-swatch swatch-original" aria-hidden="true"></span>
+                <span><strong>Clean print</strong><small>Natural color</small></span>
+              </button>
+              <button class="grade-button is-active" type="button" data-grade="gta-ink">
+                <span class="grade-swatch swatch-ink" aria-hidden="true"></span>
+                <span><strong>GTA Ink</strong><small>Posterized edges</small></span>
+              </button>
+              <button class="grade-button" type="button" data-grade="sun-bleach">
+                <span class="grade-swatch swatch-bleach" aria-hidden="true"></span>
+                <span><strong>Sun bleach</strong><small>Warm and faded</small></span>
+              </button>
+            </div>
+          </section>
+
+          <button class="export-button" id="export-button" type="button">
+            <span>Export cover</span>
+            <span class="export-key">PNG</span>
+          </button>
+          <p class="rail-status" id="rail-status" aria-live="polite">Your cover stays on this device.</p>
+        </aside>
+
+        <section class="preview-stage" aria-label="Cover preview">
+          <div class="preview-toolbar">
+            <div>
+              <p class="section-label">Live canvas</p>
+              <h2>Six frames, one fever dream</h2>
+            </div>
+            <div class="canvas-spec">
+              <span>1080 × 1080</span>
+              <span class="spec-mark" aria-hidden="true"></span>
+              <span id="grade-readout">GTA Ink</span>
+            </div>
+          </div>
+          <div class="canvas-wrap">
+            <div class="canvas-pin pin-one" aria-hidden="true"></div>
+            <div class="canvas-pin pin-two" aria-hidden="true"></div>
+            <canvas id="cover-canvas" width="1080" height="1080">Your browser does not support the cover canvas.</canvas>
+          </div>
+          <div class="preview-footer">
+            <span>Drag in a new cast from the left</span>
+            <span class="footer-rule" aria-hidden="true"></span>
+            <span id="render-status">Rendering local preview</span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
